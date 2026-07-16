@@ -1,0 +1,59 @@
+name: Process images and upload artifact
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Pillow
+        run: python -m pip install --upgrade pip && python -m pip install Pillow
+
+      - name: Run image conversion
+        run: python scripts/process_images.py
+
+      - name: Create manifest and zip
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          from zipfile import ZipFile
+          src = Path('assets/images')
+          conv = src / 'converted'
+          manifest = {}
+          for p in sorted(conv.iterdir()):
+              if p.is_file() and p.suffix.lower() == '.webp':
+                  stem = p.stem
+                  if stem.endswith('-lg'):
+                      base = stem[:-3]; size = 'lg'
+                  elif stem.endswith('-md'):
+                      base = stem[:-3]; size = 'md'
+                  elif stem.endswith('-sm'):
+                      base = stem[:-3]; size = 'sm'
+                  else:
+                      continue
+                  manifest.setdefault(base, {})[size] = f'converted/{p.name}'
+          (src / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8')
+          with ZipFile(src / 'converted.zip', 'w') as zf:
+              for p in sorted(conv.iterdir()):
+                  if p.is_file():
+                      zf.write(p, arcname=p.name)
+          PY
+
+      - name: Upload converted images artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: converted-images
+          path: assets/images/converted.zip
