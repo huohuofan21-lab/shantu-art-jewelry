@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>山取 · 山取的世界</title>
+    <meta
+      name="description"
+      content="山取的世界讲述品牌理念、艺术家张俊杰的创作脉络，以及高端私人定制与合作方式。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-bar">
+        <a class="brand" href="index.html">山取</a>
+        <button class="menu-toggle" aria-label="切换菜单">☰</button>
+        <nav class="nav-links">
+          <a href="index.html">首页</a>
+          <a href="jewelry.html">珠宝系列</a>
+          <a href="rock-paint.html">岩彩画</a>
+          <a href="materials.html">颜料</a>
+          <a href="world.html">山取世界</a>
+          <a href="#contact">预约</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">山取的世界</p>
+            <h1>在自然、材料与艺术之间，打造你的专属高端体验。</h1>
+            <p>
+              山取不仅是作品，它是一个结合艺术、收藏、定制与文化传承的当代项目。
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">预约咨询</a>
+              <a class="btn btn-secondary" href="index.html">返回首页</a>
+            </div>
+          </div>
+          <div class="hero-card">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="assets/images/converted/微信图片_20250711182522-lg.webp 1200w, assets/images/converted/微信图片_20250711182522-md.webp 800w, assets/images/converted/微信图片_20250711182522-sm.webp 400w"
+                sizes="(max-width: 760px) 100vw, 50vw"
+              />
+              <img
+                src="assets/images/converted/微信图片_20250711182522-md.webp"
+                alt="山取的世界与艺术场景"
+                loading="lazy"
+              />
+            </picture>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-muted">
+        <div class="container section-heading">
+          <p class="eyebrow">品牌定位</p>
+          <h2>高端工艺与自然材质的交汇，是山取最核心的表达。</h2>
+          <p>
+            我们为收藏者、艺术爱好者和品牌合作方提供私人定制、色彩咨询、艺术空间建议与作品收藏方案。
+          </p>
+        </div>
+        <div class="container feature-pill-grid">
+          <div class="feature-pill">定制服务</div>
+          <div class="feature-pill">艺术合作</div>
+          <div class="feature-pill">文化传承</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container section-split">
+          <div class="section-copy">
+            <p class="eyebrow">艺术家视角</p>
+            <h2>张俊杰的创作，源于对矿物与时间的敏锐观察。</h2>
+            <p>
+              从矿山到画室，张俊杰秉持“材料即语言”的理念，探索矿物色彩在当代空间中的可能性。
+            </p>
+            <ul class="list-highlight">
+              <li>从矿石原色出发，强调材料本体</li>
+              <li>研究光线与层次的结构表达</li>
+              <li>将私人空间变成沉浸式艺术场域</li>
+            </ul>
+          </div>
+          <div class="section-image">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="assets/images/converted/微信图片_2026-03-02_161618_387-lg.webp 1200w, assets/images/converted/微信图片_2026-03-02_161618_387-md.webp 800w, assets/images/converted/微信图片_2026-03-02_161618_387-sm.webp 400w"
+                sizes="(max-width: 760px) 100vw, 45vw"
+              />
+              <img
+                src="assets/images/converted/微信图片_2026-03-02_161618_387-md.webp"
+                alt="艺术家张俊杰肖像"
+                loading="lazy"
+              />
+            </picture>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="contact">
+        <div class="container section-heading">
+          <p class="eyebrow">预约与合作</p>
+          <h2>与山取一起，启动你的私人定制艺术计划。</h2>
+        </div>
+        <div class="container contact-grid">
+          <div>
+            <p>欢迎通过邮箱、微信或私人顾问预约品牌交流与定制咨询。</p>
+            <p>我们将提供专属作品建议、材料说明和空间配置方案。</p>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <input type="text" placeholder="您的姓名" required />
+            <input type="email" placeholder="联系邮箱" required />
+            <textarea rows="4" placeholder="您想了解的作品、定制或合作方向"></textarea>
+            <button class="btn btn-primary" type="submit">提交咨询</button>
+            <p id="formMessage" class="form-message"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 山取 · 自然之美，艺术之光</p>
+      </div>
+    </footer>
+  </body>
+</html>
